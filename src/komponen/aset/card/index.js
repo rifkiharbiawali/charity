@@ -15,7 +15,7 @@ class CardDonation extends Component {
       detail: "",
       maxDonasi: "",
       foto: "",
-      postId: "",
+      postId: "123234",
     };
   }
 
