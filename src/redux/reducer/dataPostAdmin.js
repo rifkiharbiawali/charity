@@ -1,5 +1,5 @@
 const statePostEvent = {
-  tambahData: false,
+  tambahData: true,
 };
 
 const postAdminReducer = (state = statePostEvent, action) => {

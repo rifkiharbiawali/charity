@@ -38,35 +38,47 @@ class Firebase extends Component {
   // };
 
   addDataPostCharity = (data) => {
-    return this.database.ref("postCharity/" + data.title + data.maxDonasi).set({
+    return this.database.ref("postCharity/").push({
       title: data.title,
       detail: data.detail,
       maxDonasi: data.maxDonasi,
       foto: data.foto,
+      progressPost: 0,
     });
   };
 
-  updateDataFirebase = (update) => {
-    return;
+  updateDataPostCharity = (data) => {
+    return this.database.ref("postCharity/" + data.postId).set({
+      title: data.title,
+      detail: data.detail,
+      maxDonasi: data.maxDonasi,
+      foto: data.foto,
+      progressPost: data.progressPost,
+    });
   };
 
-  getDataPostCharity = () => {
+  getDataPostCharity = (ambilDataFirebase) => {
     let urlData = this.database.ref("postCharity");
-    return new Promise((Resolve, Reject) => {
-      urlData.on("value", (snapshot) => {
-        // updateStarCount(postElement, snapshot.val());
-        let data = [];
-        Object.keys(snapshot.val()).map((key) => {
-          data.push({
-            id: key,
-            data: snapshot.val()[key],
-          });
+    // return new Promise((Resolve, Reject) => {
+    urlData.on("value", (snapshot) => {
+      // updateStarCount(postElement, snapshot.val());
+      let data = [];
+      Object.keys(snapshot.val()).map((key) => {
+        data.push({
+          id: key,
+          data: snapshot.val()[key],
         });
-
-        console.log(data);
-        Resolve(data);
       });
+
+      console.log(data);
+      ambilDataFirebase(data);
+      // Resolve(data);
     });
+    // });
+  };
+
+  deleteDataPostCharity = (deleteData) => {
+    return this.database.ref("postCharity/" + deleteData.id).remove();
   };
 }
 
