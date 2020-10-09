@@ -1,8 +1,0 @@
-ANALISA
-Program Charity 
--halaman login dan register
--event charity = CRUD
--tiap program charity yang berlangsung ada parameternya sudah capai target berapa % berubah sesuai inputan user
--tiap program charity yang sudah selesai (100%) tetap bisa ditampilkan file lpj, photo, ucapan terimakasih dari korban sebagai bukti, record, dan protofolio
--user dapat melihat list pendonor di tiap program charity
--pembayaran donasi menggunakan koin yang dapat dibeli di halaman yang berbeda dengan cara transfer manual
